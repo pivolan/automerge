@@ -9,7 +9,7 @@ namespace Pivolan;
 const BRANCH = 'prod_rack';
 const KEY_WORD = '#complete';
 
-exec("cd " . __DIR__);
+chdir(__DIR__);
 exec("git fetch", $output, $return);
 var_dump($return);
 print_r($output);
