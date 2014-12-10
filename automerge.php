@@ -24,14 +24,13 @@ unset($output);
 exec("git pull --rebase", $output, $return);
 var_dump($return);
 print_r($output);
-$completeCommits = [];
 if (is_array($gitLog)) {
     foreach ($gitLog as $string) {
         if (strpos($string, KEY_WORD) !== false) {
             $string_parts = explode(' ', $string);
             if (isset($string_parts[0])) {
                 $commitHash = $string_parts[0];
-                $mergeOutput = [];
+                $mergeOutput = array();
                 exec("git merge --no-ff --no-edit " . $commitHash, $mergeOutput, $return);
                 var_dump($return);
                 print_r($mergeOutput);
